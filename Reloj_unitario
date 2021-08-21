@@ -1,0 +1,47 @@
+horizontal_position   = 0
+
+
+def setup():
+    size(500, 200)
+    
+def draw():
+    global horizontal_position 
+ 
+    background(255)
+    #linea por cada 15s,15m y 6h
+    line(125,0,125,200)
+    #linea por cada 30s.30m y 12h
+    line(250,0,250,200) 
+    #linea por cada 45s, 45m y 18h
+    line (375,0,375,200)
+              
+    #second
+    
+    ellipse (horizontal_position ,50,50,50)
+    fill (map(hour(),0,59,255,0))
+    
+    if horizontal_position  >  width:
+        horizontal_position  = 0
+    else:
+        horizontal_position  =map(minute(),0,59,100,width)
+        
+   #minute
+    
+    ellipse (horizontal_position ,100,50,50)
+    fill (map(hour(),0,59,255,0))
+    
+    if horizontal_position   > width:
+        horizontal_position  = 0
+    else:
+        horizontal_position = map(hour(),0,23,0,width)
+        
+    #hour
+    
+    ellipse (horizontal_position ,150,50,50)
+    fill (map(second(),0,59,255,0))
+    
+    if horizontal_position   > width:
+        horizontal_position  = 0
+    else:
+        horizontal_position  = map(second(),0,59,0,width)
+    
